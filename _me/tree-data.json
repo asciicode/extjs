@@ -4,10 +4,9 @@ children: [{
     text:'Basic Ext Layouts',
     expanded: true,
     children:[{
-        text:'Absolute',
-        id:'absolute',
-        href: "#!me.html",
-        leaf:true
+        text:'Form 1',
+        id:'form1',
+        leaf:true,
     },{
         text:'Accordion',
         id:'accordion',

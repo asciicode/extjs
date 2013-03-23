@@ -1,0 +1,48 @@
+{
+	xtype: "panel"
+	,title: "Form 1"
+    ,id: "grid-dynamic-blotter"
+	,columnLayout:1
+	,items:[{
+	   xtype: "form"
+	   ,ref: "FormPanel"
+	   ,bodyStyle: "padding:10px"
+	   ,layout: "vbox"
+	   ,defaults: { layout: "form", border:false, flex: 1 }
+	   ,items:[{
+	       
+			xtype: "textfield"
+			,fieldLabel: "Base Currency"
+			,name: "currency1"
+			,editable: false
+			,listWidth: 170
+			,listeners: {
+				
+			}
+		},{
+			xtype: "textfield"
+			,fieldLabel: "Toppings"
+			,name: "toppings"
+			,editable: false
+			,listWidth: 170
+		},{
+			xtype: "combobox",
+            fieldLabel: 'Choose State',
+			store: new Ext.data.ArrayStore({
+				id: 0,
+				fields: [
+					'myId',
+					'displayText'
+				],
+				data: [[1, 'item1'], [2, 'item2']]
+			}),
+			queryMode: 'local',
+			displayField: 'displayText',
+			valueField: 'myId'
+        },{
+        	xtype: "datefield"
+        	,fieldLabel: 'Date'
+        	,name: 'date'
+        }]    
+	}]
+}		   
