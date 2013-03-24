@@ -38,7 +38,7 @@
 		},{
 			xtype : "container"
 			,layout : "column"
-			,anchor : '100%'
+			// ,anchor : '100%'
 			,items : [{
 				xtype : "container"
 				,layout : "form"
@@ -47,7 +47,7 @@
 					xtype : "textfield"
 					,fieldLabel : "State"
 					,name : "state"
-					,anchor : '-20'
+					// ,anchor : '-20'
 				}]
 			},{
 				xtype : "container"

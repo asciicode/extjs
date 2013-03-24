@@ -85,22 +85,7 @@ Ext.onReady(function(){
 		console.log(selModel);
 		console.log(record)
 		if (record.get('leaf')){
-			// clearExtjsComponent(contentPanel)
-			/*contentPanel.update('');
-
-			// add the new component
-			contentPanel.add(newPanel);
-
-			// redraw the containing panel
-			contentPanel.doLayout();*/
-			// var firstItem = Ext.getCmp('content-panel').items.first();
-			// Ext.getCmp('start-panel').html = 'Hello World';
-		    // console.log(Ext.getCmp('start-panel'));
-		    // clearExtjsComponent(Ext.getCmp('start-panel'));
-		    // Ext.getCmp('content-panel').removeAll(true);
-		    
-		    // Ext.apply(config, attributes);
-		    var node = { params: { clientId: 'clientId' , clientName: 'clientName', layoutName: "ClientLayout" }};
+			var node = { params: { clientId: 'clientId' , clientName: 'clientName', layoutName: "ClientLayout" }};
 		    
             // Ext.apply( config, attri );
             // var p = Ext.ComponentMgr.create(config, 'panel');
@@ -156,13 +141,111 @@ Ext.onReady(function(){
         ,layout: "fit"
         ,showScreenHeader:false
     })
-    
+    var xtplWin = Ext.create("Ext.Window",{
+		title : 'Template',
+		id: 'xtplWin',
+		width : 320,                            
+		height: 180,
+		// closable : false,                           
+		// html : 'A window that is a modal!',                         
+		modal : true
+		,tpl: new Ext.XTemplate("<tpl><table><tr><td>Test :</td><td>&nbsp;{test}</td></tr><tr><td>Field :</td><td>&nbsp;{field}</td></tr></table></tpl>")
+		,data: Ext.create('Ext.data.ArrayStore', {
+			test: 'Don Griffin',
+			field: 'Senior Technomage'
+		})
+		//,tplWriteMode: 'overwrite'
+		//,renderTo: Ext.getBody()
+		/*,items:[{
+			xtype : 'panel'
+			,title: 'test'
+			,layout: 'card'
+			,tpl : new Ext.XTemplate("<tpl><div> asdf </div></tpl>")
+			,data : ""
+		}]*/
+		,buttons: [{
+			text: 'Submit'
+			,listeners: {
+				click : {
+					fn : function(){
+						// btnHiFlag = true;
+						console.log(Ext.getCmp('submitHide').fireEvent("click"));
+					}
+				} 
+			}
+		},{
+			text: 'Cancel'
+			,listeners: {
+				click : {
+					fn : function(){
+						Ext.getCmp('xtplWin').hide();
+					}
+				}
+			}
+		}]
+	});
+	var btnHiFlag = false; 
     var sayHi = function(name){
 		// Note this use of "this.text" here.  This function expects to
 		// execute within a scope that contains a text property.  In this
 		// example, the "this" variable is pointing to the btn object that
 		// was passed in createDelegate below.
-		alert('Hi, ' + name + '. You clicked the "' + this.text + '" button.');
+		// alert('Hi, ' + name + '. You clicked the "' + this.text + '" button.');
+		Ext.create("Ext.Window",{
+			title : 'Extra window!',
+			width : 350,                            
+			height: 200,
+			// closable : false,                           
+			// html : 'A window that is a modal!',                         
+			modal : true
+			,items : [{
+				xtype : "fieldset"
+				,layout : "form"
+				,border : false
+				,items : [{
+					xtype : "textfield"
+					,fieldLabel : "Test"
+					,name : "test"
+					,id : "test"
+				},{
+					xtype : "textfield"
+					,fieldLabel : "Field"
+					,name : "field"
+					,id : "field"
+				}]
+			}],
+			buttons: [{
+				text: 'Submit'
+				,id: 'submitHi'
+				,listeners: {
+					click : {
+						fn : function(){
+							console.log(Ext.getCmp("test").getValue())
+							var data = Ext.create('Ext.data.ArrayStore', {
+								test: Ext.getCmp("test").getValue(),
+								field: Ext.getCmp("field").getValue()
+							})
+							xtplWin.update(data);
+							xtplWin.show();
+						}
+					} 
+				}
+			},{
+				text: 'Submit Hide'
+				,id: "submitHide"
+				,hidden: true	
+				,listeners:{
+					click:{
+						fn : function(){
+							alert('submit gkan sa hide button');
+						}
+					}
+				}
+			},{
+				text: 'Cancel'
+			}]
+			
+		}).show();
 	}
 	
 	var btn = new Ext.Button({
