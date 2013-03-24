@@ -1,0 +1,66 @@
+{
+	title : "Our Complex Form"
+	,layout : "hbox"
+	// ,height : 120
+	,layoutConfig : {
+		align : "stretch"
+	}
+	,items : [{
+		xtype : "fieldset"
+		,title : "Name Information"
+		,flex : 1
+		,border : false
+		,defaultType : "field"
+		,items : [{
+			fieldLabel : "First"
+			,name : "first"
+		},{	
+			fieldLabel : "Middle"
+			,name : "middle"
+		},{
+			fieldLabel : "Last"
+			,name : "last"	
+		}]
+	},{
+		xtype: "fieldset"
+		,title : "Address Information"
+		,flex : 1
+		,border : false
+		,defaultType : "field"
+		,items : [{
+			fieldLabel : "Address"
+			,name : "address"
+			// ,xtype : "textfield"
+		},{
+			fieldLabel : "Street"
+			,name : "street"
+			// ,xtype : "textfield"
+		},{
+			xtype : "container"
+			,layout : "column"
+			,anchor : '100%'
+			,items : [{
+				xtype : "container"
+				,layout : "form"
+				,width : "50%"
+				,items : [{
+					xtype : "textfield"
+					,fieldLabel : "State"
+					,name : "state"
+					,anchor : '-20'
+				}]
+			},{
+				xtype : "container"
+				,layout : "form"
+				,columnWidth : 1
+				// ,labelWidth : 30
+				,items : [{
+					xtype : "textfield"
+					,fieldLabel : "Zip"
+					// ,anchor : '-10'
+					,name : "zip"
+				}]	
+			}]		
+		}]
+	}]
+}		   

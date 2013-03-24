@@ -8,8 +8,8 @@ children: [{
         id:'form1',
         leaf:true,
     },{
-        text:'Accordion',
-        id:'accordion',
+        text:'Form 2',
+        id:'form2',
         leaf:true
     },{
         text:'Anchor',
