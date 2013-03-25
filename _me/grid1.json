@@ -1,0 +1,32 @@
+{
+	xtype: "gridpanel"
+	,title: "Grid 1"
+    ,id: "grid1"	
+    ,loadMask : true
+    ,columns: [
+        { text: 'Name',  dataIndex: 'name' },
+        { text: 'Email', dataIndex: 'email', flex: 1 },
+        { text: 'Phone', dataIndex: 'phone' }
+    ]
+	,store: {
+	    storeId:'simpsonsStore',
+	    fields:['name', 'email', 'phone'],
+	    proxy: {
+	        type: 'ajax'
+	        ,url: 'grid1-data.json'
+	        ,reader: {
+	            type: 'json',
+	            root: 'items'
+	        }
+			,autoLoad: true
+	    }
+	}
+    ,listeners: {
+    	render: function(){
+    		this.store.load();
+    	}
+    	,itemdblclick: function( grid, record, item, index, e, eOpts ){
+    		console.log("You clicked row "+index);
+    	}
+    }
+}

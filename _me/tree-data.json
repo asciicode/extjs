@@ -12,8 +12,8 @@ children: [{
         id:'form2',
         leaf:true
     },{
-        text:'Anchor',
-        id:'anchor',
+        text:'Grid 1',
+        id:'grid1',
         leaf:true
     },{
         text:'Border',

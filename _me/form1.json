@@ -1,7 +1,7 @@
 {
 	xtype: "panel"
 	,title: "Form 1"
-    ,id: "grid-dynamic-blotter"
+    ,id: "form1"
 	,columnLayout:1
 	,items:[{
 	   xtype: "form"

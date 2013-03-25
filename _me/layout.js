@@ -253,9 +253,6 @@ Ext.onReady(function(){
 		renderTo: Ext.getBody()
 	});
 	
-	// This callback will execute in the scope of the
-	// button instance. Clicking the button alerts
-	// "Hi, Fred. You clicked the "Say Hi" button."
 	btn.on('click', Ext.bind(sayHi, btn, ['Fred']));
 
 	Ext.create('Ext.Viewport', {
